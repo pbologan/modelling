@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Data } from './calculations';
@@ -146,6 +146,8 @@ function App() {
             <Box sx={{
               display: "flex",
               flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
               flexGrow: 1
             }}>
               <Typography variant="h4" margin={2} textAlign="center">Экспоненциальная модель</Typography>
@@ -166,10 +168,26 @@ function App() {
                   <Line type="monotone" dataKey="expN" />
                 </LineChart>
               </ResponsiveContainer>
+              <Table sx={{ maxWidth: 400 }}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: "1.1rem", fontWeight: 600 }}>Месяц</TableCell>
+                    <TableCell sx={{ fontSize: "1.1rem", fontWeight: 600 }}>Численность</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: "1.1rem" }}>{data[data.length - 1].time}</TableCell>
+                    <TableCell sx={{ fontSize: "1.1rem" }}>{data[data.length - 1].expN}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </Box>
             <Box sx={{
               display: "flex",
               flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
               flexGrow: 1
             }}>
               <Typography variant="h4" margin={2} textAlign="center">Логистическая модель</Typography>
@@ -190,6 +208,20 @@ function App() {
                   <Line type="monotone" dataKey="logN" />
                 </LineChart>
               </ResponsiveContainer>
+              <Table sx={{ maxWidth: 400 }}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: "1.1rem", fontWeight: 600 }}>Месяц</TableCell>
+                    <TableCell sx={{ fontSize: "1.1rem", fontWeight: 600 }}>Численность</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow>
+                    <TableCell sx={{ fontSize: "1.1rem" }}>{data[data.length - 1].time}</TableCell>
+                    <TableCell sx={{ fontSize: "1.1rem" }}>{data[data.length - 1].logN}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </Box>
           </Box>
       }
