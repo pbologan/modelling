@@ -18,7 +18,7 @@ export const PopulationPage: FC = () => {
     K: 10000,
     r: 0.2
   }]);
-  const [N, setN] = useState<number>(1000);
+  const [N, setN] = useState<number>(100);
   const [r, setR] = useState<number>(0.2);
   const [K, setK] = useState(10000);
   const [started, setStarted] = useState(false);
